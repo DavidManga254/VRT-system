@@ -4,8 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "vrt:generate": "node scripts/generateTest.mjs"
+    "vrt:run": "node --env-file=.env scripts/runner.mjs",
+    "vrt:run:update": "node --env-file=.env scripts/runner.mjs --update-baselines",
+    "vrt:run:skip-generate": "node --env-file=.env scripts/runner.mjs --skip-generate",
+    "vrt:run:skip-fix": "node --env-file=.env scripts/runner.mjs --skip-fix",
+    "vrt:generate": "node scripts/generateTest.mjs",
+    "vrt:sync": "node --env-file=.env scripts/sync-pencil.mjs",
+    "vrt:fix": "node --env-file=.env scripts/ai-fix.mjs",
+    "vrt:report": "playwright show-report reports/playwright",
+    "install:browsers": "playwright install --with-deps chromium"
   },
   "keywords": [],
   "author": "",

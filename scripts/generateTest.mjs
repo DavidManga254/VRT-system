@@ -54,7 +54,7 @@ const groups = storyEntries.reduce((acc, story) => {
 function sanitise(name) {
   return name
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/[^a-z0-9-]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
 
@@ -71,7 +71,8 @@ const blocks = Object.entries(groups)
   test('${story.name}', async ({ page }) => {
     await page.goto(storyUrl('${story.id}'))
     await waitForStory(page)
-    await expect(page).toHaveScreenshot('${snapshotName}.png')
+    const component = page.locator('#storybook-root > *').first()
+    await expect(component).toHaveScreenshot('${snapshotName}.png')
   })`;
       })
       .join("\n");

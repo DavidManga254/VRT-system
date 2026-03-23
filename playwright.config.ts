@@ -42,12 +42,4 @@ export default defineConfig({
       use: { ...devices["Pixel 5"] },
     },
   ],
-  //
-  // webServer: {
-  //   command: 'npm run storybook',
-  //   cwd: '../your-app',      // path to app
-  //   url: 'http://localhost:6006',
-  //   reuseExistingServer: !process.env.CI,
-  //   timeout: 120_000,
-  // },
 });
